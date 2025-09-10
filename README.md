@@ -1,0 +1,2 @@
+# restAssuredAPIAutomationFramework
+RestAssured API Automation Framework Design
