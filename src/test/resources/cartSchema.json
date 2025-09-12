@@ -1,0 +1,43 @@
+{
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "integer"
+		},
+		"userId": {
+			"type": "integer"
+		},
+		"date": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"products": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"productId": {
+						"type": "integer"
+					},
+					"quantity": {
+						"type": "integer"
+					}
+				},
+				"required": [
+					"productId",
+					"quantity"
+				]
+			}
+		},
+		"__v": {
+			"type": "integer"
+		}
+	},
+	"required": [
+		"id",
+		"userId",
+		"date",
+		"products",
+		"__v"
+	]
+}
