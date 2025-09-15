@@ -13,6 +13,8 @@ import static org.hamcrest.Matchers.*;
 
 public class HTTPRequests {
 
+    private int productId;
+
     @Test(priority = 1)
     void getProducts(){
         given()
@@ -27,18 +29,52 @@ public class HTTPRequests {
 
     @Test(priority = 2)
     void createProducts(){
-        HashMap map = new HashMap();
+        Map map = new HashMap();
         map.put("title","New Product");
         map.put("price",29.99);
+
+        productId = given()
+                    .contentType("application/json")
+                    .body(map)
+                    .when()
+                    .post("https://fakestoreapi.com/products")
+                    .jsonPath().getInt("id");
+
+//                  .then()
+//                  .statusCode(201)
+//                  .log().all();
+    }
+
+    @Test(priority = 3,dependsOnMethods = {"createProducts"})
+    void updateProducts(){
+        Map map = new HashMap();
+        map.put("title","Updated Product");
+        map.put("price",39.99);
 
         given()
                 .contentType("application/json")
                 .body(map)
-        .when()
-                .post("https://fakestoreapi.com/products")
-        .then()
-                .statusCode(201)
+
+                .when()
+                .put("https://fakestoreapi.com/products/"+productId)
+
+                .then()
+                .statusCode(200)
+//                .body("title",equalTo("Updated Product"))
+//                .body("price",equalTo(39.99))
                 .log().all();
+
     }
 
+    @Test(priority = 4,dependsOnMethods = {"createProducts"})
+    void deleteProducts(){
+        given()
+                .contentType("application/json")
+
+                .when()
+                .delete("https://fakestoreapi.com/products/"+productId)
+
+                .then()
+                .statusCode(200);
+    }
 }
