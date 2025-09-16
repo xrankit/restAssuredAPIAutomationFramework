@@ -1,4 +1,4 @@
-package testcases.Day1;
+package testcases.day1;
 /*
 given() - content type, set cookies, add auth, add parameters, set headers etc...
 when() - get, post, put, delete
@@ -30,7 +30,7 @@ public class HttpRequests {
 
     @Test(priority = 2)
     void createProducts(){
-        Map map = new HashMap();
+        Map<String,Object> map = new HashMap<>();
         map.put("title","New Product");
         map.put("price",29.99);
 
@@ -48,7 +48,7 @@ public class HttpRequests {
 
     @Test(priority = 3,dependsOnMethods = {"createProducts"})
     void updateProducts(){
-        Map map = new HashMap();
+        Map<String,Object> map = new HashMap<>();
         map.put("title","Updated Product");
         map.put("price",39.99);
 
