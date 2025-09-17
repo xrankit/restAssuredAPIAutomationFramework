@@ -54,7 +54,7 @@ public class ExtentReporter implements ITestListener {
             extent.setSystemInfo("Host Name", "Localhost");
             extent.setSystemInfo("Environment", "Test");
             //extent.setSystemInfo("User", System.getProperty("user.name"));
-            extent.setSystemInfo("User", "SUMANTH SAI");
+            extent.setSystemInfo("User", "Ankit Yadav");
             extent.setSystemInfo("Role","SDET");
         }
         return extent;

@@ -10,7 +10,8 @@ public class HttpRequestHashMap {
     private int productId;
 
     @Test(priority = 1)
-    void testGetPostRequestHashMap(){
+    void testGetHttpRequestHashMap(){
+
         given()
 
                 .when()
@@ -22,7 +23,7 @@ public class HttpRequestHashMap {
     }
 
     @Test(priority = 2)
-    void testPostRequestHashMap (){
+    void testPostHttpRequestHashMap (){
 
         Map<String,Object> data = new HashMap<>();
         data.put("title","Ankit Product");
@@ -55,8 +56,8 @@ public class HttpRequestHashMap {
 
     }
 
-    @Test(priority = 3,dependsOnMethods = {"testPostRequestHashMap"})
-    void testPutRequestHashMap(){
+    @Test(priority = 3,dependsOnMethods = {"testPostHttpRequestHashMap"})
+    void testPutHttpRequestHashMap(){
         Map<String, Object> data = new HashMap<>();
         data.put("title","Tested Ankit Product Update");
         data.put("category","electronic update");
@@ -78,14 +79,14 @@ public class HttpRequestHashMap {
 
     }
 
-    @Test(priority = 4,dependsOnMethods = {"testPostRequestHashMap"})
-    void testDeleteRequestHashMap(){
+    @Test(priority = 4,dependsOnMethods = {"testPostHttpRequestHashMap"})
+    void testDeleteHttpRequestHashMap(){
 
         given()
                 .contentType("application/json")
 
                 .when()
-                .delete("http://localhost:8765/products/"+21)
+                .delete("http://localhost:8765/products/"+productId)
 
                 .then()
                 .statusCode(200);
