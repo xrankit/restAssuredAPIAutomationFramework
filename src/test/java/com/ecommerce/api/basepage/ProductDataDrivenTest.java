@@ -1,4 +1,4 @@
-package testcases;
+package com.ecommerce.api.basepage;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -8,16 +8,17 @@ import static org.hamcrest.Matchers.anyOf;
 
 import java.util.Map;
 
+import com.ecommerce.api.utils.DataProviders;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
-import pojo.Product;
-import routes.Routes;
+import com.ecommerce.api.pojo.Product;
+import com.ecommerce.api.routes.Routes;
 
-public class ProductDataDrivenTest extends BaseClass
+public class ProductDataDrivenTest extends BasePage
 {
 	
-	@Test(dataProvider="jsonDataProvider", dataProviderClass=utils.DataProviders.class)
+	@Test(dataProvider="jsonDataProvider", dataProviderClass= DataProviders.class)
 	public void testAddNewProduct(Map<String,String> data)
 	{
 		

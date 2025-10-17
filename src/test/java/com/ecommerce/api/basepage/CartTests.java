@@ -1,4 +1,4 @@
-package testcases;
+package com.ecommerce.api.basepage;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -14,11 +14,11 @@ import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import payloads.Payload;
-import pojo.Cart;
-import routes.Routes;
+import com.ecommerce.api.payloads.Payload;
+import com.ecommerce.api.pojo.Cart;
+import com.ecommerce.api.routes.Routes;
 
-public class CartTests extends BaseClass{
+public class CartTests extends BasePage {
 
 	 	@Test
 	    public void testGetAllCarts() {

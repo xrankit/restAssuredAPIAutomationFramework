@@ -1,10 +1,10 @@
-package testcases;
+package com.ecommerce.api.basepage;
 
-import pojo.Product;
-import routes.Routes;
+import com.ecommerce.api.pojo.Product;
+import com.ecommerce.api.routes.Routes;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import payloads.Payload;
+import com.ecommerce.api.payloads.Payload;
 
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
@@ -14,7 +14,7 @@ import java.util.List;
 
 
 
-public class ProductTests extends BaseClass{
+public class ProductTests extends BasePage {
 
 	
 	//1) Test to retrieve all products

@@ -1,4 +1,4 @@
-package utils;
+package com.ecommerce.api.utils;
 
 import java.awt.Desktop;
 import java.io.File;
