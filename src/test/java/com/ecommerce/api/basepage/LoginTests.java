@@ -1,4 +1,4 @@
-package testcases;
+package com.ecommerce.api.basepage;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -6,11 +6,11 @@ import static org.hamcrest.Matchers.notNullValue;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
-import payloads.Payload;
-import pojo.Login;
-import routes.Routes;
+import com.ecommerce.api.payloads.Payload;
+import com.ecommerce.api.pojo.Login;
+import com.ecommerce.api.routes.Routes;
 
-public class LoginTests extends BaseClass{
+public class LoginTests extends BasePage {
 
 	@Test
 	public void testInvalidUserLogin() {
