@@ -1,4 +1,4 @@
-package payloads;
+package com.ecommerce.api.payloads;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,14 +10,14 @@ import java.util.Random;
 
 import com.github.javafaker.Faker;
 
-import pojo.Address;
-import pojo.Cart;
-import pojo.CartProduct;
-import pojo.Geolocation;
-import pojo.Login;
-import pojo.Name;
-import pojo.Product;
-import pojo.User;
+import com.ecommerce.api.pojo.Address;
+import com.ecommerce.api.pojo.Cart;
+import com.ecommerce.api.pojo.CartProduct;
+import com.ecommerce.api.pojo.Geolocation;
+import com.ecommerce.api.pojo.Login;
+import com.ecommerce.api.pojo.Name;
+import com.ecommerce.api.pojo.Product;
+import com.ecommerce.api.pojo.User;
 
 
 public class Payload {

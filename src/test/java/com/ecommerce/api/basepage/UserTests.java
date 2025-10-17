@@ -1,4 +1,4 @@
-package testcases;
+package com.ecommerce.api.basepage;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -11,12 +11,12 @@ import static org.hamcrest.Matchers.anyOf;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import payloads.Payload;
-import pojo.User;
-import routes.Routes;
+import com.ecommerce.api.payloads.Payload;
+import com.ecommerce.api.pojo.User;
+import com.ecommerce.api.routes.Routes;
 
 
-public class UserTests extends BaseClass
+public class UserTests extends BasePage
 {
 
 	//1) Fetch all the users

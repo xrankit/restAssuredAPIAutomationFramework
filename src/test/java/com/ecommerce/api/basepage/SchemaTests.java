@@ -1,12 +1,12 @@
-package testcases;
+package com.ecommerce.api.basepage;
 
 import static io.restassured.RestAssured.given;
 import org.testng.annotations.Test;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
-import routes.Routes;
+import com.ecommerce.api.routes.Routes;
 
-public class SchemaTests extends BaseClass {
+public class SchemaTests extends BasePage {
 
 	
 	@Test

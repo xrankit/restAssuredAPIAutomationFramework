@@ -1,4 +1,4 @@
-package routes;
+package com.ecommerce.api.routes;
 
 public class Routes {
 
