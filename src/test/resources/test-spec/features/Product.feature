@@ -16,3 +16,22 @@ Feature: Product API test cases different operations
     Given user prepared request to get limited number of products
     When user sends get request to get products with limit
     Then validate the status code should be 200 with body size be 3
+
+  Scenario Outline: Get products sorted in <sortedOrder> order
+    Given user prepare a request to get products sorted in "<order>" order
+    When user send the request to get sorted products
+    Then validate products should be sorted in "<order>" order
+    Examples:
+      | sortedOrder | order |
+      | ascending   | asc   |
+      | descending  | desc  |
+
+  Scenario: Get all product categories
+    Given user prepare request to get all categories
+    When user send request to get all categories
+    Then validate all categories are returned
+
+  Scenario: Get products by category
+    Given user prepare request to get products by category "electronics"
+    When user send request to get products by category
+    Then validate products belong to category "electronics"
