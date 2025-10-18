@@ -49,6 +49,50 @@ public class ProductStepDefPage {
 
     @Then("validate the status code should be {int} with body size be {int}")
     public void validateTheStatusCodeShouldBeWithBodySizeBe(int statusCode, int limitSize) {
-        productPage.validateGetLimitedProductsResponse(statusCode,limitSize);
+        productPage.validateGetLimitedProductsResponse(statusCode, limitSize);
+    }
+
+    @Given("user prepare a request to get products sorted in {string} order")
+    public void prepareSortedProductsRequest(String order) {
+        productPage.prepareGetSortedProductsRequest(order);
+    }
+
+    @When("user send the request to get sorted products")
+    public void sendSortedProductsRequest() {
+        productPage.sendGetSortedProductsRequest();
+    }
+
+    @Then("validate products should be sorted in {string} order")
+    public void validateProductsShouldBeSortdIn(String order) {
+        productPage.validateSortedProducts(order);
+    }
+    @Given("user prepare request to get all categories")
+    public void prepareAllCategoriesRequest() {
+        // No params needed
+    }
+
+    @When("user send request to get all categories")
+    public void sendAllCategoriesRequest() {
+        productPage.sendGetAllCategoriesRequest();
+    }
+
+    @Then("validate all categories are returned")
+    public void validateAllCategories() {
+        productPage.validateAllCategories();
+    }
+
+    @Given("user prepare request to get products by category {string}")
+    public void prepareProductsByCategoryRequest(String category) {
+
+    }
+
+    @When("user send request to get products by category")
+    public void sendProductsByCategoryRequest() {
+        productPage.sendGetProductsByCategoryRequest();
+    }
+
+    @Then("validate products belong to category {string}")
+    public void validateProductsByCategory(String category) {
+        productPage.validateProductsByCategory(category);
     }
 }
