@@ -10,8 +10,12 @@ public class APIRequestBuilder {
 
     private final RequestSpecification spec;
 
-    public APIRequestBuilder() {
+    public  APIRequestBuilder() {
         this.spec = given().spec(RestAssuredExtension.getRequestSpec());
+    }
+
+    public APIRequestBuilder(RequestSpecification requestSpec) {
+        this.spec = given().spec(requestSpec);
     }
 
     public APIRequestBuilder withBody(Object body) {

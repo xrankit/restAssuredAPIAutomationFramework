@@ -2,9 +2,13 @@ package com.ecommerce.api.basepage.response.validation.handler;
 
 import com.ecommerce.api.basepage.response.validation.ResponseHandler;
 import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
+
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@Slf4j
 public class BodyValidator implements ResponseHandler {
 
     private ResponseHandler nextHandler;
