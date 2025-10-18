@@ -20,7 +20,7 @@ public class SchemaTests extends CommonPage {
 		.when()
 			.get(Routes.GET_PRODUCT_BY_ID)
 		.then()
-			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/productSchema.json"));
+			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("test-spec/schema/productSchema.json"));
 	}
 	
 	
@@ -32,7 +32,7 @@ public class SchemaTests extends CommonPage {
             .when()
                 .get(Routes.GET_CART_BY_ID)
             .then()
-            	.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/cartSchema.json"));
+            	.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("test-spec/schema/cartSchema.json"));
     }
 	
 	@Test
@@ -44,7 +44,7 @@ public class SchemaTests extends CommonPage {
 		.when()
 			.get(Routes.GET_USER_BY_ID)
 		.then()
-			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/userSchema.json"));
+			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("test-spec/schema/userSchema.json"));
 		
 	}
 	

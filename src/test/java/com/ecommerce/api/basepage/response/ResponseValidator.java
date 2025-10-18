@@ -3,25 +3,29 @@ package com.ecommerce.api.basepage.response;
 import com.ecommerce.api.basepage.response.validation.ResponseHandler;
 import com.ecommerce.api.basepage.response.validation.handler.*;
 import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ResponseValidator {
 
     private ResponseHandler firstHandler;
     private ResponseHandler lastHandler;
-    private final Response response;
+    private Response response;
+    private final BodyValidator bodyValidator;
 
-    // Optional configuration
     private Integer expectedStatus;
     private String schemaPath;
     private boolean validateHeader = false;
     private boolean validateBody = false;
 
-    // Constructor
-    public ResponseValidator(Response response) {
-        this.response = response;
+    public ResponseValidator(){
+        bodyValidator = new BodyValidator();
     }
 
-    // ---------------------- Builder Style Config ----------------------
+    public ResponseValidator setResponse(Response response) {
+        this.response = response;
+        return this;
+    }
 
     public ResponseValidator withStatusCode(int statusCode) {
         this.expectedStatus = statusCode;
@@ -42,8 +46,6 @@ public class ResponseValidator {
         this.validateBody = true;
         return this;
     }
-
-    // ---------------------- Build the Chain ----------------------
 
     public ResponseValidator build() {
         ResponseHandler prev = null;
@@ -75,8 +77,6 @@ public class ResponseValidator {
         return this;
     }
 
-    // ---------------------- Add handler to chain ----------------------
-
     private void addToChain(ResponseHandler newHandler, ResponseHandler prev) {
         if (firstHandler == null) {
             firstHandler = newHandler;
@@ -86,19 +86,27 @@ public class ResponseValidator {
         lastHandler = newHandler;
     }
 
-    // ---------------------- Execute ----------------------
-
     public void execute() {
         if (firstHandler == null) {
             throw new IllegalStateException("❌ No validation configured in ResponseValidator!");
         }
-        firstHandler.handle(response);
+        try {
+            firstHandler.handle(response);
+            log.info("✅ Validation passed for response: {}", response.getStatusCode());
+        } catch (AssertionError | Exception e) {
+            log.info("❌ Validation failed: {}", e.getMessage());
+            throw e;
+        }
     }
 
-    // ---------------------- Single Validations ----------------------
-
     public void validateStatusOnly(int expectedStatus) {
-        new StatusCodeValidator(expectedStatus).handle(response);
+        try {
+            new StatusCodeValidator(expectedStatus).handle(response);
+            log.info("✅ Status code validated successfully: {}", expectedStatus);
+        } catch (AssertionError e) {
+            log.info("❌ Status code validation failed: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public void validateHeaderOnly() {
@@ -110,6 +118,13 @@ public class ResponseValidator {
     }
 
     public void validateBodyOnly() {
-        new BodyValidator().handle(response);
+        try {
+            bodyValidator.handle(response);
+            log.info("✅ Body validation successful");
+        } catch (AssertionError e) {
+            log.info("❌ Body validation failed: {}", e.getMessage());
+            throw e;
+        }
     }
+
 }
