@@ -18,7 +18,7 @@ import com.ecommerce.api.payloads.Payload;
 import com.ecommerce.api.pojo.Cart;
 import com.ecommerce.api.routes.Routes;
 
-public class CartTests extends BasePage {
+public class CartTests extends CommonPage {
 
 	 	@Test
 	    public void testGetAllCarts() {
@@ -110,7 +110,7 @@ public class CartTests extends BasePage {
 	         List<Integer> cartIds = response.jsonPath().getList("id", Integer.class);
 
 	         // Validate IDs are sorted in ascending  order(calling helper method)
-	         assertThat(isSortedDesceding(cartIds), is(true));
+	         assertThat(isSortedDescending(cartIds), is(true));
 	    }  
 	    
 	   @Test
@@ -128,7 +128,7 @@ public class CartTests extends BasePage {
 	         List<Integer> cartIds = response.jsonPath().getList("id", Integer.class);
 
 	         // Validate IDs are sorted in ascending  order(calling helper method)
-	         assertThat(isSortedAsceding(cartIds), is(true));
+	         assertThat(isSortedAscending(cartIds), is(true));
 	    }  
 	    
 	    @Test

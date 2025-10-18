@@ -14,7 +14,7 @@ import java.util.List;
 
 
 
-public class ProductTests extends BasePage {
+public class ProductTests extends CommonPage {
 
 	
 	//1) Test to retrieve all products
@@ -76,7 +76,7 @@ public class ProductTests extends BasePage {
 			.extract().response();
 		
 		List<Integer> productIds=response.jsonPath().getList("id", Integer.class);
-		 assertThat(isSortedDesceding(productIds), is(true));
+		 assertThat(isSortedDescending(productIds), is(true));
 	}
 	
 	//5) Test to retreive products sorted in Ascending order
@@ -92,7 +92,7 @@ public class ProductTests extends BasePage {
 				.extract().response();
 			
 			List<Integer> productIds=response.jsonPath().getList("id", Integer.class);
-			 assertThat(isSortedAsceding(productIds), is(true));
+			 assertThat(isSortedAscending(productIds), is(true));
 		}
 	
 	//6) Test to get all product categories

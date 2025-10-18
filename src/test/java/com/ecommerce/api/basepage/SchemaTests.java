@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import com.ecommerce.api.routes.Routes;
 
-public class SchemaTests extends BasePage {
+public class SchemaTests extends CommonPage {
 
 	
 	@Test
@@ -20,7 +20,7 @@ public class SchemaTests extends BasePage {
 		.when()
 			.get(Routes.GET_PRODUCT_BY_ID)
 		.then()
-			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("productSchema.json"));
+			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/productSchema.json"));
 	}
 	
 	
@@ -32,7 +32,7 @@ public class SchemaTests extends BasePage {
             .when()
                 .get(Routes.GET_CART_BY_ID)
             .then()
-            	.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("cartSchema.json"));
+            	.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/cartSchema.json"));
     }
 	
 	@Test
@@ -44,7 +44,7 @@ public class SchemaTests extends BasePage {
 		.when()
 			.get(Routes.GET_USER_BY_ID)
 		.then()
-			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("userSchema.json"));
+			.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("testspec/schema/userSchema.json"));
 		
 	}
 	

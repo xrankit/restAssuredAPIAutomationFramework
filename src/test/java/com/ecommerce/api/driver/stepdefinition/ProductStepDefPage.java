@@ -7,22 +7,18 @@ public class ProductStepDefPage {
 
     ProductPage productPage = new ProductPage();
 
-    @Given("^user prepared request to get product data$")
-    public void userPreparedRequestToGetProductData() {
-        
+    @Given("user prepared request to get all product data")
+    public void userPreparedRequestToGetAllProductData() {
+        productPage.prepareRequestToGetAllProductData();
     }
 
     @When("user send a getRequest to get product endpoint with valid payload")
     public void userSendAGetRequestToGetProductEndpointWithValidPayload() {
+        productPage.sendGetRequestToGetAllProductEndpoint();
     }
 
-    @Then("response status code should be {int}")
-    public void responseStatusCodeShouldBe(int statusCode) {
-
-    }
-
-    @And("response should contain a valid product id")
-    public void responseShouldContainAValidProductId() {
-        
+    @Then("validate the complete API response for getAllProducts")
+    public void validateCompleteApiResponse() {
+        productPage.validateResponseEndToEnd();
     }
 }

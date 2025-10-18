@@ -10,7 +10,7 @@ import com.ecommerce.api.payloads.Payload;
 import com.ecommerce.api.pojo.Login;
 import com.ecommerce.api.routes.Routes;
 
-public class LoginTests extends BasePage {
+public class LoginTests extends CommonPage {
 
 	@Test
 	public void testInvalidUserLogin() {

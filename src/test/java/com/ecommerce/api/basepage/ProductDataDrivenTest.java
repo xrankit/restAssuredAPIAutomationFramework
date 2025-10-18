@@ -15,7 +15,7 @@ import io.restassured.http.ContentType;
 import com.ecommerce.api.pojo.Product;
 import com.ecommerce.api.routes.Routes;
 
-public class ProductDataDrivenTest extends BasePage
+public class ProductDataDrivenTest extends CommonPage
 {
 	
 	@Test(dataProvider="jsonDataProvider", dataProviderClass= DataProviders.class)

@@ -16,7 +16,7 @@ import com.ecommerce.api.pojo.User;
 import com.ecommerce.api.routes.Routes;
 
 
-public class UserTests extends BasePage
+public class UserTests extends CommonPage
 {
 
 	//1) Fetch all the users
@@ -80,7 +80,7 @@ public class UserTests extends BasePage
 		List<Integer> userIds=response.jsonPath().getList("id", Integer.class);
 		
 		
-		assertThat(isSortedDesceding(userIds), is(true));
+		assertThat(isSortedDescending(userIds), is(true));
 	}
 	
 	//5) Test to fetch users sorted in ascending order
@@ -98,7 +98,7 @@ public class UserTests extends BasePage
 		List<Integer> userIds=response.jsonPath().getList("id", Integer.class);
 		
 		
-		assertThat(isSortedAsceding(userIds), is(true));
+		assertThat(isSortedAscending(userIds), is(true));
 	}
 	
 	

@@ -16,7 +16,7 @@ import com.ecommerce.api.utils.ConfigReader;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
-public class BasePage {
+public class CommonPage {
 
     ConfigReader configReader;
 
@@ -46,7 +46,7 @@ public class BasePage {
 
     // Helper method to check if a list is sorted in descending order
 
-    boolean isSortedDesceding(List<Integer> list) {
+    boolean isSortedDescending(List<Integer> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             if (list.get(i) < list.get(i + 1)) {
                 return false;
@@ -57,7 +57,7 @@ public class BasePage {
 
     // Helper method to check if a list is sorted in asceding order
 
-    boolean isSortedAsceding(List<Integer> list) {
+    boolean isSortedAscending(List<Integer> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             if (list.get(i) > list.get(i + 1)) {
                 return false;
@@ -71,11 +71,8 @@ public class BasePage {
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public boolean validateCartDatesWithinRange(List<String> cartDates, String startDate, String endDate) {
-
         LocalDate start = LocalDate.parse(startDate, FORMATTER);
-
         LocalDate end = LocalDate.parse(endDate, FORMATTER);
-
         for (String dateTime : cartDates) {
             LocalDate cartDate = LocalDate.parse(dateTime.substring(0, 10), FORMATTER);
             if (cartDate.isBefore(start) || cartDate.isAfter(end)) {
