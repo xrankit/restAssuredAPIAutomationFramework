@@ -83,7 +83,6 @@ public class ProductStepDefPage {
 
     @Given("user prepare request to get products by category {string}")
     public void prepareProductsByCategoryRequest(String category) {
-
     }
 
     @When("user send request to get products by category")
